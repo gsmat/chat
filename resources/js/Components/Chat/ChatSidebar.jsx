@@ -1,4 +1,4 @@
-export default function ChatSidebar() {
+export default function ChatSidebar({recentMessages}) {
     return (
         <>
             <div className="">
@@ -19,49 +19,23 @@ export default function ChatSidebar() {
                 </div>
 
                 <div className="user-list overflow-y-auto h-screen bg-white">
+                    {
+                        recentMessages.map((user) => (
 
-                    <div className="flex hover:bg-slate-100 transition px-5 py-3 hover:cursor-pointer">
-                        <div className="pr-4">
-                            <img src="https://cdn-icons-png.flaticon.com/512/194/194938.png" width="50"/>
-                        </div>
-                        <div>
-                            <h3 className="text-violet-500 tex-md">Lupe Fiasco</h3>
-                            <p className="text-sm text-gray-400 font-light overflow-hidden h-5">I got two
-                                ticket to go see the awesome</p>
-                        </div>
-                    </div>
+                            <div className="flex hover:bg-slate-100 transition px-5 py-3 hover:cursor-pointer">
+                                <div className="pr-4">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/194/194938.png" width="50"/>
+                                </div>
+                                <div>
+                                    <h3 className="text-violet-500 tex-md">{user.name.length >0 ? user.name: 'N/A' }</h3>
+                                    <p className="text-sm text-gray-400 font-light overflow-hidden h-5">
+                                        {user.message.message}
+                                    </p>
+                                </div>
+                            </div>
+                        ))
+                    }
 
-                    <div className="flex hover:bg-slate-100 transition px-5 py-3 hover:cursor-pointer">
-                        <div className="pr-4">
-                            <img src="https://cdn-icons-png.flaticon.com/512/194/194938.png" width="50"/>
-                        </div>
-                        <div>
-                            <h3 className="text-violet-500 tex-md">Lupe Fiasco</h3>
-                            <p className="text-sm text-gray-400 font-light overflow-hidden h-5">I got two
-                                ticket to go see the awesome</p>
-                        </div>
-                    </div>
-
-                    <div className="flex hover:bg-slate-100 transition px-5 py-3 hover:cursor-pointer">
-                        <div className="pr-4">
-                            <img src="https://cdn-icons-png.flaticon.com/512/194/194938.png" width="50"/>
-                        </div>
-                        <div>
-                            <h3 className="text-violet-500 tex-md">Lupe Fiasco</h3>
-                            <p className="text-sm text-gray-400 font-light overflow-hidden h-5">I got two
-                                ticket to go see the awesome</p>
-                        </div>
-                    </div>
-                    <div className="flex hover:bg-slate-100 transition px-5 py-3 hover:cursor-pointer">
-                        <div className="pr-4">
-                            <img src="https://cdn-icons-png.flaticon.com/512/194/194938.png" width="50"/>
-                        </div>
-                        <div>
-                            <h3 className="text-violet-500 tex-md">Lupe Fiasco</h3>
-                            <p className="text-sm text-gray-400 font-light overflow-hidden h-5">I got two
-                                ticket to go see the awesome</p>
-                        </div>
-                    </div>
 
                 </div>
             </div>
